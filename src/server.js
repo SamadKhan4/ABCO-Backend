@@ -12,7 +12,7 @@ const stopEmailWorker = startEmailWorker();
 const stopReminders = startReminderWorker();
 const server = createApp().listen(
   process.env.PORT || 4000,
-  process.env.HOST || "127.0.0.1",
+  process.env.HOST || (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1"),
   () => console.log(`ABCO API listening on port ${process.env.PORT || 4000}`),
 );
 for (const signal of ["SIGINT", "SIGTERM"])
