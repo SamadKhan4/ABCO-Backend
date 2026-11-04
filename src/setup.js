@@ -43,22 +43,8 @@ export async function createInitialAdmin({ name, email, password, token }) {
         [{ name: "Super Admin", permissions: ["*"] }],
         { session },
       );
-      const [employee] = await Employee.create(
-        [
-          {
-            code: "ABC-0001",
-            firstName: name,
-            lastName: "",
-            email,
-            department: "Administration",
-            designation: "Administrator",
-            joiningDate: new Date(),
-          },
-        ],
-        { session },
-      );
       const [user] = await User.create(
-        [{ name, email, passwordHash, role: role._id, employee: employee._id }],
+        [{ name, email, passwordHash, role: role._id }],
         { session },
       );
       await Role.create(defaultRoles, { session, ordered: true });

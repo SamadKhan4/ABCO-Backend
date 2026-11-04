@@ -64,6 +64,26 @@ async function login(page, employee = false) {
 }
 test("login, dashboard, navigation and logout", async ({ page }) => {
   await login(page);
+  await expect(
+    page.getByRole("heading", { name: "System owner controls" }),
+  ).toBeVisible();
+  await expect(page.locator(".punch-card")).toHaveCount(0);
+  await expect(
+    page.getByRole("link", { name: "My profile", exact: true }),
+  ).toHaveCount(0);
+  await page.goto("/attendance");
+  await expect(
+    page.getByRole("heading", { name: "Attendance", exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".punch-card")).toHaveCount(0);
+  await page.goto("/leaves");
+  await expect(
+    page.getByRole("button", { name: "Request time off", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "My requests", exact: true }),
+  ).toHaveCount(0);
+  await page.goto("/");
   await page.screenshot({
     path: "test-results/dashboard-desktop.png",
     fullPage: true,

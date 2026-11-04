@@ -13,6 +13,8 @@ The existing `.env`, accounts and private storage are preserved. `configure:loca
 
 For a fresh database only, run `npm run setup` and use the generated one-time administrator link.
 
+Super Admin is a standalone system owner with company-wide permissions, not an employee. New setup creates no employee profile for the owner. For an older bootstrap account, run `node --env-file=.env scripts/separate-system-owner.mjs`: it detaches the employee link, archives the original dummy administrator employee, preserves history/passwords and revokes old sessions. Owner actions remain subject to financial approval and audit rules.
+
 ## Checks and operations
 
 ```sh

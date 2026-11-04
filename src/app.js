@@ -334,6 +334,7 @@ export function createApp({ sessionStore, logLevel } = {}) {
         name: req.user.name,
         email: req.user.email,
         employee: req.user.employee,
+        isSuperAdmin: req.user.role?.name === "Super Admin",
         role: req.user.role?.name,
         scope: req.user.role?.scope || "Company",
         permissions: req.user.role?.permissions || [],

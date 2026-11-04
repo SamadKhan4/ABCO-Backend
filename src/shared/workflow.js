@@ -20,6 +20,11 @@ export function permit(permission) {
   };
 }
 export function ownEmployee(req) {
+  if (req.user.role?.name === "Super Admin")
+    fail(
+      403,
+      "Super Admin is a system owner and cannot submit employee requests",
+    );
   if (!req.user.employee) fail(409, "Link an employee profile first");
   return String(req.user.employee);
 }

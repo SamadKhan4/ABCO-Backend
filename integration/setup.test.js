@@ -53,12 +53,18 @@ test("one-time admin setup is atomic and non-replayable", async () => {
       .expect(403);
     assert.equal(await User.countDocuments(), 1);
     assert.equal(await Role.countDocuments({ name: "Super Admin" }), 1);
-    assert.equal(await Employee.countDocuments(), 1);
+    assert.equal(await Employee.countDocuments(), 0);
+    assert.equal((await User.findOne()).employee, undefined);
     await agent
       .post("/api/v1/auth/login")
       .set("x-csrf-token", csrf)
       .send({ email: input.email, password: input.password })
       .expect(200);
+    const owner = (await agent.get("/api/v1/auth/me").expect(200)).body.data;
+    assert.equal(owner.isSuperAdmin, true);
+    assert.deepEqual(owner.permissions, ["*"]);
+    assert.equal(owner.employee, undefined);
+    await agent.get("/api/v1/employees").expect(200);
   } finally {
     assert.ok(/^abco_test_[a-f0-9]{32}$/.test(mongoose.connection.name));
     await mongoose.connection.dropDatabase();
