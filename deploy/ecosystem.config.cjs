@@ -1,0 +1,1 @@
+module.exports={apps:[{name:'abco-hrms-api',cwd:require('node:path').resolve(__dirname,'..'),script:'src/server.js',node_args:'--env-file=.env',instances:1,exec_mode:'fork',autorestart:true,max_memory_restart:'750M',kill_timeout:10000,env:{NODE_ENV:'production',HOST:'127.0.0.1',PORT:4000},time:true}]};

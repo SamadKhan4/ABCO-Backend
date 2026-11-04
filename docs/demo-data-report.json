@@ -1,0 +1,488 @@
+{
+  "dataset": "abco-demo-v1",
+  "createdFor": "Explicitly requested fictional sample data",
+  "anchorDate": "2026-11-02",
+  "verified": true,
+  "checks": [
+    {
+      "model": "Organization",
+      "sampleRecords": 12
+    },
+    {
+      "model": "Employee",
+      "sampleRecords": 3
+    },
+    {
+      "model": "User",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Role",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ShiftAssignment",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Attendance",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Regularization",
+      "sampleRecords": 3
+    },
+    {
+      "model": "LeavePolicy",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Leave",
+      "sampleRecords": 3
+    },
+    {
+      "model": "LeaveBalance",
+      "sampleRecords": 3
+    },
+    {
+      "model": "LeaveLedger",
+      "sampleRecords": 3
+    },
+    {
+      "model": "LeaveAdjustment",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Project",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Task",
+      "sampleRecords": 3
+    },
+    {
+      "model": "DailyReport",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Timesheet",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Training",
+      "sampleRecords": 3
+    },
+    {
+      "model": "TrainingEnrollment",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Skill",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ExpensePolicy",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Travel",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Expense",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Survey",
+      "sampleRecords": 3
+    },
+    {
+      "model": "SurveyResponse",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Recognition",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Suggestion",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Job",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Candidate",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Onboarding",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Performance",
+      "sampleRecords": 3
+    },
+    {
+      "model": "PeerFeedback",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ImprovementPlan",
+      "sampleRecords": 3
+    },
+    {
+      "model": "AppraisalRecommendation",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Asset",
+      "sampleRecords": 3
+    },
+    {
+      "model": "AssetAssignment",
+      "sampleRecords": 3
+    },
+    {
+      "model": "AssetMaintenance",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Exit",
+      "sampleRecords": 3
+    },
+    {
+      "model": "FinalSettlement",
+      "sampleRecords": 3
+    },
+    {
+      "model": "SalaryStructure",
+      "sampleRecords": 3
+    },
+    {
+      "model": "PayrollAdjustment",
+      "sampleRecords": 3
+    },
+    {
+      "model": "LoanPolicy",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Loan",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Ticket",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Announcement",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Holiday",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ApprovalWorkflow",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ApprovalCase",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ApprovalDelegation",
+      "sampleRecords": 3
+    },
+    {
+      "model": "DocumentTemplate",
+      "sampleRecords": 3
+    },
+    {
+      "model": "ShiftSwap",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Notification",
+      "sampleRecords": 6
+    },
+    {
+      "model": "Audit",
+      "sampleRecords": 3
+    },
+    {
+      "model": "Document",
+      "sampleRecords": 18
+    }
+  ],
+  "notes": [
+    "Existing records, accounts and company settings preserved.",
+    "Sample employee accounts are inactive and have no assigned passwords.",
+    "Financial records are draft/requested; no payroll release, payment or email was performed.",
+    "Approval workflows/delegations and legal letter templates are inactive until explicitly configured.",
+    "Payslip, recovery and finalized payroll ledgers require their real approval lifecycle; they are not fabricated."
+  ],
+  "apiVerification": {
+    "routes": [
+      {
+        "path": "/employees",
+        "status": 200,
+        "visibleRecords": 5
+      },
+      {
+        "path": "/organization/departments",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/organization/designations",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/organization/branches",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/organization/shifts",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/attendance?date=2026-11-01",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/shift-assignments",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/attendance/regularizations",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/leaves",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/leave-policies",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/tasks",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/daily-reports",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/projects",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/timesheets",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/training",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/training-enrollments",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/skills",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/expense-policies",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/expenses",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/travel",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/surveys",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/recognitions",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/suggestions",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/recruitment/jobs",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/recruitment/candidates",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/onboarding",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/performance",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/peer-feedback",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/improvement-plans",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/appraisal-recommendations",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/assets",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/asset-maintenance",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/exits",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/documents",
+        "status": 200,
+        "visibleRecords": 18
+      },
+      {
+        "path": "/document-templates",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/generated-letters",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/salary-structures",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/payroll/periods",
+        "status": 200,
+        "visibleRecords": 4
+      },
+      {
+        "path": "/payroll-adjustments",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/loan-policies",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/loans",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/final-settlements",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/helpdesk",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/announcements",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/holidays",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/approval-workflows",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/approvals",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/approval-delegations",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/notifications",
+        "status": 200,
+        "visibleRecords": 3
+      },
+      {
+        "path": "/users",
+        "status": 200,
+        "visibleRecords": 5
+      },
+      {
+        "path": "/roles",
+        "status": 200,
+        "visibleRecords": 11
+      }
+    ],
+    "privatePDFDownload": true,
+    "verifiedAt": "2026-11-02T12:13:44.228Z"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "bootstrap": "node --env-file-if-exists=.env src/bootstrap.js",
+    "test": "node --test test/*.test.js",
+    "test:integration": "node --test --test-concurrency=1 --test-timeout=120000 integration/*.test.js",
+    "setup": "node --env-file-if-exists=.env src/setup-link.js",
+    "configure:local": "node scripts/configure-local.mjs",
+    "migrate": "node scripts/migrate-hrms.mjs",
+    "seed:demo": "node scripts/seed-demo.mjs",
+    "verify:demo": "node scripts/verify-demo.mjs",
+    "audit:functions": "node scripts/audit-functions.mjs",
+    "check:production": "node scripts/production-check.mjs",
+    "backup:create": "node scripts/backup.mjs create",
+    "backup:verify": "node scripts/backup.mjs verify",
+    "test:e2e": "node scripts/run-e2e.mjs",
+    "lint": "eslint src test integration tests scripts deploy *.js",
+    "format:check": "prettier --check src test integration tests scripts docs *.js *.json"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.3",
+    "multer": "^2.5.0",
+    "nodemailer": "^10.3.1",
+    "otpauth": "^9.5.2",
+    "pdfkit": "^0.20.2",
+    "pino-http": "^11.0.0",
+    "qrcode": "^1.5.4",
+    "write-excel-file": "^4.1.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "vite": "^7.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@tailwindcss/vite": "^4.1.17"
+  },
+  "engines": {
+    "node": ">=24.14.0"
+  }
+}

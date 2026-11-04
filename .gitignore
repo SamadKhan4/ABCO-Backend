@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+storage/
+playwright-report/
+test-results/
+*.abco
+backups/
+.workspace-backup/

@@ -1,0 +1,40 @@
+# Install as a dedicated site file. Replace the domain and project path.
+# Obtain and configure the domain's TLS certificate before enabling this block.
+server {
+    listen 80;
+    server_name hrms.example.invalid;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ssl;
+    server_name hrms.example.invalid;
+    ssl_certificate /etc/letsencrypt/live/hrms.example.invalid/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hrms.example.invalid/privkey.pem;
+    root /srv/abco-hrms/frontend/dist;
+    index index.html;
+    client_max_body_size 9m;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+    add_header X-Frame-Options DENY always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'" always;
+    location /api/ {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 60s;
+        proxy_no_cache 1;
+        add_header Cache-Control no-store always;
+    }
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+    location / {
+        add_header Cache-Control no-cache;
+        try_files $uri $uri/ /index.html;
+    }
+    location ~ /\. { deny all; }
+}
